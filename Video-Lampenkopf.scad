@@ -13,7 +13,7 @@
 // Aktueller Raum für Elektronik: 48mm Durchmesser, 40mm Länge...
 
 //Rendering information
-$fn=200;
+$fn=100;
 
 // Variablenblock:
 
@@ -120,7 +120,7 @@ module deckelscheibe (innenRadius, aussenRadius, hoehe){
       // 2 mm vom Kernloch der Verschraubung entfernt:
       ring (oRingNutAussenRadius, 
             oRingNutInnenRadius, 
-            oRingNutTiefe + 1.0);
+            oRingNutTiefe);  //  + 1.0 O-Ring klemmt nur und dichtet hier nicht.
     }
   }
 }
@@ -296,22 +296,22 @@ module korpus(aussenRadius, glasAufnahmeRadius, ledAufnahmeRadius){
     }
 
     // Kühlrippen
-    for (i=[25:4:gesamtLaenge - 34]){
+    for (i=[22:4:gesamtLaenge - 34]){
       translate ([0, 0, i]){     
         ring (aussenRadius + 3.00, 
               ledAufnahmeRadius + 3.0, 
               2.5);
       }
     }
-    translate ([0, 0, 20]){     
+    translate ([0, 0, 10]){     
       ring (aussenRadius + 3.00, 
             ledAufnahmeRadius + 11, //rippenlänge = 8mm 
-            35);
+            45);
     }
  
    
     translate ([0, 0, -1]){   
-      ring (aussenRadius + 3.0,  27, 25); 
+      ring (aussenRadius + 3.0,  27, 20); 
     } 
   }
 
